@@ -7,6 +7,13 @@ div{
     position: relative;
 }
 
+input{
+    position: absolute;
+    padding: 2px;
+    font-family: Avenir;
+    font-size: 15px;
+}
+
 #users-bar{
     border: 1px solid black;
     width: 250px;
@@ -22,20 +29,18 @@ div{
 }
 
 #chat-output{
-    border: 1px solid blue;
     width: 700px;
     height: 750px;
+    background-color: #DCDCDC;
 }
 
-#text-input{
-    border: 1px solid red;
-    width: 700px;
+#text-bar-div{
+    width: 550px;
     height: 50px;
 }
 
-#submit-button-div{
-    border: 1px solid purple;
-    width: 100px;
+#text-bar{
+    width: 540px;
     height: 50px;
-    margin-left: 600px; 
+    margin: -10px 0 0 -275px;
 }
