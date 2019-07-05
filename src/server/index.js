@@ -22,4 +22,5 @@ io.on('connect', (clientSocket) => {
     clientSocket.on('disconnect', () => {
         console.log('Connection with client lost');
     });
+
 });

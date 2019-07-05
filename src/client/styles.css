@@ -1,0 +1,41 @@
+/* TODO: Most borders here are place holders - remove them! */
+html{
+    text-align: center; /*Centers users-bar and chat-window divs*/
+}
+
+div{
+    position: relative;
+}
+
+#users-bar{
+    border: 1px solid black;
+    width: 250px;
+    display: inline-block; /*Allows div to be added next to this instead of at the bottom*/
+    height: 800px;
+}
+
+#chat-window{
+    border: 1px solid black;
+    width: 700px;
+    display: inline-block; /*Allows div to be added next to this instead of at the bottom*/
+    height: 800px;
+}
+
+#chat-output{
+    border: 1px solid blue;
+    width: 700px;
+    height: 750px;
+}
+
+#text-input{
+    border: 1px solid red;
+    width: 700px;
+    height: 50px;
+}
+
+#submit-button-div{
+    border: 1px solid purple;
+    width: 100px;
+    height: 50px;
+    margin-left: 600px; 
+}
