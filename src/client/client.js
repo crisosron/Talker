@@ -30,5 +30,5 @@ socket.on('displayMessage', (data) => {
     let message = data.message;
     let senderName = data.senderName;
     let senderSocketID = data.senderSocketID;
-    chatOutputDiv.innerHTML += `<p>${senderName}: ${message}</p>`;
+    chatOutputDiv.innerHTML += `<p>${senderName}: ${message}</p><br>`;
 });

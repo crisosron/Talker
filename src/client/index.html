@@ -11,14 +11,28 @@
 <body>
     <!--Div that shows all users-->
     <div id="users-bar">
+        <!-- <div id="username-input">
+            <input type="text" id="username-input-bar" placeholder="Username" required>
+        </div> -->
         <div id="username-input">
             <input type="text" id="username-input-bar" placeholder="Username" required>
         </div>
-    
+    </div>
+
+    <div id="chat-window">
+        <div id="chat-output"></div>
+
+        <div id="text-bar-div">
+            <input type="text" id="text-bar">
+        </div>
+
+        <div id="send-button-div">
+            <button type="button" id="send-button">SEND</button>
+        </div>
     </div>
 
     <!--Div that displays the chat-->
-    <div id="chat-window">
+    <!-- <div id="chat-window">
         <div id="chat-output">
         </div>
         
@@ -29,7 +43,7 @@
         <button type="button" id="send-button">SEND</button>
 
 
-    </div>
+    </div> -->
 
     <script>
         const PORT_NUM = 5409;
