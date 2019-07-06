@@ -7,6 +7,10 @@ div{
     position: relative;
 }
 
+p{
+    position: absolute;
+}
+
 input{
     position: absolute;
     padding: 2px;
@@ -41,6 +45,24 @@ input{
 
 #text-bar{
     width: 540px;
+    height: 40px;
+    margin: 0 0 0 -275px;
+}
+
+#username-input-bar{
+    width: 240px;
+    height: 40px;
+    margin-left: -125px;
+
+}
+
+#send-button{
+    width: 150px;
     height: 50px;
-    margin: -10px 0 0 -275px;
+    margin-left: 200px;
+    margin-top: -50px;
+    position: absolute;
+    font-family: Avenir;
+    font-size: 20px;
+
 }
