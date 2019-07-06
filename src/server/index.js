@@ -18,6 +18,18 @@ let io = socket(server);
 io.on('connect', (clientSocket) => {
     console.log(`Connection with client established: ${clientSocket.id}`);
 
+    clientSocket.on('messageSent', (data) => {
+        console.log(`a message was sent from a client`);
+
+        //Emitting to all clients connected to this server to display a message sent by a client
+        io.sockets.emit('displayMessage', {
+            message: data.message,
+            senderName: data.senderName,
+            senderSocketID: clientSocket.id //To identify who sent the message
+        });
+
+    });
+
     //Client disconnection handling
     clientSocket.on('disconnect', () => {
         console.log('Connection with client lost');
