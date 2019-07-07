@@ -72,3 +72,18 @@ p{
     height: 50px;
     font-size: 20px;
 }
+
+#confirm-name-button{
+    width: 250px;
+    height: 50px;
+    font-size: 20px;
+    margin-top: 8px;
+}
+
+.this-sender{
+    color: blue;
+}
+
+.other-sender{
+    color: red;
+}

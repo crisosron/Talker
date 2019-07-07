@@ -6,6 +6,13 @@ const sendButton = document.getElementById('send-button');
 const textBar = document.getElementById('text-bar');
 const userNameBar = document.getElementById('username-input-bar');
 const chatOutputDiv = document.getElementById('chat-output');
+const confirmNameButton = document.getElementById('confirm-name-button');
+
+confirmNameButton.addEventListener('click', () => {
+    let userName = userNameBar.value;
+    if(userName == "") alert("Enter a valid username!");
+    else socket.emit('registerUserName', {userName: userName});
+});
 
 sendButton.addEventListener('click', () => {
     let textToSend = textBar.value;
@@ -26,9 +33,18 @@ sendButton.addEventListener('click', () => {
 
 });
 
+socket.on('userNameRegisteredStatus', (data) => {
+    let validUserName = data.validUserName;
+    if(validUserName) alert(`Username registered as: ${userNameBar.value}`);
+    else alert(`Duplicate username, please enter a different username`);
+    //TODO: Have some boolean that indicates if the client can start sending messages when their name is valid
+});
+
+
 socket.on('displayMessage', (data) => {
     let message = data.message;
     let senderName = data.senderName;
     let senderSocketID = data.senderSocketID;
-    chatOutputDiv.innerHTML += `<p>${senderName}: ${message}</p><br>`;
+    if(senderSocketID == socket.id)chatOutputDiv.innerHTML += `<p><strong class="this-sender">${senderName}</strong>: ${message}</p><br>`;
+    else chatOutputDiv.innerHTML += `<p><strong class="other-sender">${senderName}</strong>: ${message}</p><br>`;
 });

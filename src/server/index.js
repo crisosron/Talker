@@ -14,9 +14,20 @@ app.use(express.static('src/client'));
 //Creating server socket
 let io = socket(server);
 
+//Array of all existing usernames in the server
+let userNames = [];
+
 //Connection handling
 io.on('connect', (clientSocket) => {
     console.log(`Connection with client established: ${clientSocket.id}`);
+
+    clientSocket.on('registerUserName', (data) => {
+        let userName = data.userName;
+
+        //Sends message to specific client if the client tries to register a user name that is already in use
+        if(userNames.includes(userName)) clientSocket.emit('userNameRegisteredStatus', {validUserName: false});
+        else clientSocket.emit('userNameRegisteredStatus', {validUserName: true});
+    });
 
     clientSocket.on('messageSent', (data) => {
         console.log(`a message was sent from a client`);
