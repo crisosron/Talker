@@ -14,6 +14,16 @@ confirmNameButton.addEventListener('click', () => {
     else socket.emit('registerUserName', {userName: userName});
 });
 
+//Handles events where Enter key is pressed
+document.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter'){
+        
+        // Determines which of the 2 input bars are active
+        if(document.activeElement === userNameBar) confirmNameButton.click();
+        else if(document.activeElement === textBar) sendButton.click();
+    }
+});
+
 sendButton.addEventListener('click', () => {
     let textToSend = textBar.value;
     let senderName = userNameBar.value;
@@ -30,6 +40,8 @@ sendButton.addEventListener('click', () => {
         senderName: senderName,
         message: textToSend
     });
+
+    textBar.value = "";
 
 });
 
