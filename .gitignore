@@ -1,2 +1,3 @@
 node_modules/
 .jshintrc
+*.swp #.swp files are created by vim
