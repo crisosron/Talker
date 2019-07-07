@@ -1,10 +1,17 @@
 /* TODO: Most borders here are place holders - remove them! */
 html{
     text-align: center; /*Centers users-bar and chat-window divs*/
+    font-family: Avenir;
 }
 
 div{
     position: relative;
+}
+
+p{
+    font-size: 14px;
+    margin-left: 20px;
+    margin-bottom: -20px;
 }
 
 #users-bar{
@@ -26,6 +33,7 @@ div{
     height: 750px;
     background-color: #DCDCDC;
     overflow: auto;
+    text-align: left;
 }
 
 #text-bar-div{
@@ -38,7 +46,6 @@ div{
 #text-bar{
     width: 540px;
     height: 45px;
-    font-family: Avenir;
     font-size: 15px;
 }
 
@@ -52,7 +59,6 @@ div{
 #send-button{
     width: 150px;
     height: 51px;
-    font-family: Avenir;
     font-size: 20px;
 }
 
@@ -64,6 +70,5 @@ div{
 #username-input-bar{
     width: 250px;
     height: 50px;
-    font-family: Avenir;
     font-size: 20px;
 }
