@@ -14,18 +14,24 @@ p{
     margin-bottom: -20px;
 }
 
+#container{
+    width: 1000px;
+    height: 1000px;
+    margin: auto;
+}
+
 #users-bar{
     border: 1px solid black;
     width: 250px;
     height: 800px;
-    left: 350px;
+    left: 45px;
 }
 
 #chat-window{
     width: 700px;
     height: 802px;
     top: -802px;
-    left: 600px;
+    left: 300px;
 }
 
 #chat-output{
@@ -68,16 +74,16 @@ p{
 }
 
 #username-input-bar{
-    width: 250px;
     height: 50px;
     font-size: 20px;
+    padding: 5px;
 }
 
 #confirm-name-button{
     width: 250px;
     height: 50px;
     font-size: 20px;
-    margin-top: 8px;
+    margin-top: 15px;
 }
 
 .this-sender{

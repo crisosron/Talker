@@ -25,8 +25,11 @@ io.on('connect', (clientSocket) => {
         let userName = data.userName;
 
         //Sends message to specific client if the client tries to register a user name that is already in use
-        if(userNames.includes(userName)) clientSocket.emit('userNameRegisteredStatus', {validUserName: false});
-        else clientSocket.emit('userNameRegisteredStatus', {validUserName: true});
+        if(userNames.includes(userName))clientSocket.emit('userNameRegisteredStatus', {validUserName: false});
+        else {
+            clientSocket.emit('userNameRegisteredStatus', {validUserName: true});
+            userNames.push(userName);    
+        }
     });
 
     clientSocket.on('messageSent', (data) => {
