@@ -33,7 +33,6 @@ io.on('connect', (clientSocket) => {
     });
 
     clientSocket.on('messageSent', (data) => {
-        console.log(`a message was sent from a client`);
 
         //Emitting to all clients connected to this server to display a message sent by a client
         io.sockets.emit('displayMessage', {

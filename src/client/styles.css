@@ -1,4 +1,3 @@
-/* TODO: Most borders here are place holders - remove them! */
 html{
     text-align: center; /*Centers users-bar and chat-window divs*/
     font-family: Avenir;
@@ -92,4 +91,11 @@ p{
 
 .other-sender{
     color: red;
+}
+
+.user-bar-item{
+    width: 250px;
+    height: 50px;
+    border: 1px solid green;
+    text-align: center;
 }
