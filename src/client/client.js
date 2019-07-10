@@ -46,13 +46,22 @@ sendButton.addEventListener('click', () => {
 
 });
 
+//Server confirms name validity of this client
 socket.on('userNameRegisteredStatus', (data) => {
     let validUserName = data.validUserName;
     if(validUserName) {
         alert(`Username registered as: ${userNameBar.value}`);
-        createUserBarItem(userNameBar.value);
+        socket.emit('createUserBarItem', {
+            userName: userNameBar.value
+        });
     }
     else alert(`Duplicate username, please enter a different username`);
+});
+
+//Handling for when the server requests for all clients to create a new user bar item
+socket.on('createUserBarItem', (data) => {
+    let userName = data.userName;
+    createUserBarItem(userName);
 });
 
 
@@ -67,12 +76,15 @@ socket.on('displayMessage', (data) => {
 });
 
 /**
-* Creates a user bar item object
-*
-*/
+ * Creates a user bar item object
+ *
+ */
 function createUserBarItem(userName){
-    usersBar.innerHTML += `<div class="user-bar-item this-sender">
+    usersBar.innerHTML += `<div class="user-bar-item this-sender" id="${userName}">
                               <p>${userName}</p>        
-                           </div>`
-    console.log(`Created a user bar for the user name: ${userName}`);
+                           </div>`;
+    const userBarDiv = document.getElementById(userName);
+    let userBarItem = new UserBarItem(userName, userBarDiv, socket.id);
+    userBarItems.push(userBarItem);
+    console.log(`Created a user bar for the user name: ${userName}`);  
 }

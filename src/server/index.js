@@ -21,6 +21,7 @@ let userNames = [];
 io.on('connect', (clientSocket) => {
     console.log(`Connection with client established: ${clientSocket.id}`);
 
+    //Handling for when a client tries to enter a user name
     clientSocket.on('registerUserName', (data) => {
         let userName = data.userName;
 
@@ -32,6 +33,14 @@ io.on('connect', (clientSocket) => {
         }
     });
 
+    //Handling for when a user bar item needs to be created
+    clientSocket.on('createUserBarItem', (data) => {
+        io.sockets.emit('createUserBarItem', {
+            userName: data.userName
+        });
+    });
+
+    //Handling for when a client sends a message
     clientSocket.on('messageSent', (data) => {
 
         //Emitting to all clients connected to this server to display a message sent by a client
